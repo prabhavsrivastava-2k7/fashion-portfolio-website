@@ -38,7 +38,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-sans antialiased bg-[#050510] text-[#f0f0f5] overflow-x-hidden">
+      <body className="font-sans antialiased bg-[#050510] text-[#f0f0f5] overflow-x-hidden cursor-none vignette">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

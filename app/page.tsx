@@ -12,20 +12,29 @@ import { UIUXSection } from "@/components/uiux-section"
 import { EntrepreneurSection } from "@/components/entrepreneur-section"
 import { AthleticsSection } from "@/components/athletics-section"
 import { ContactSection } from "@/components/contact-section"
+import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
+import { CustomCursor } from "@/components/custom-cursor"
+import { FilmGrain } from "@/components/film-grain"
+import { WebGLAtmosphere } from "@/components/webgl-atmosphere"
+import { PageTransition } from "@/components/page-transition"
 import { motion } from "framer-motion"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <>
+    <SmoothScrollProvider>
+      <CustomCursor />
+      <FilmGrain />
+      <WebGLAtmosphere />
+      <PageTransition />
       <LoadingScreen onComplete={() => setIsLoading(false)} />
-      
+
       <motion.main
-        className="relative"
+        className="relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <Navbar />
         <HeroSection />
@@ -38,6 +47,6 @@ export default function Home() {
         <AthleticsSection />
         <ContactSection />
       </motion.main>
-    </>
+    </SmoothScrollProvider>
   )
 }
